@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 清除浏览器默认样式 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 图标文字 -->
+    <link rel="stylesheet" href="./Font Awesome/css/all.css">
+    <!-- CSS样式 -->
+    <link rel="stylesheet" href="./less/Web test.css">
+    <!-- icon 图标 -->
+    <link rel="stylesheet" href="./font_3179128_hu6vrjnpzcd/iconfont.css">
+
+
+    <script>
+        window.onload = function () {
+            /* 所有图片 */
+            var imgAll = document.getElementsByTagName("img");
+            /* ul */
+            var imgList = document.getElementById("sildeshow");
+            var imgList2 = document.getElementById("sildeshow2");
+            /* 咨询按钮 */
+            var pop = document.getElementById("pop");
+            /* img父容器 */
+            var imgBox = document.getElementById("imgbox");
+            /* 关闭模态框按钮 */
+            var close = document.getElementById("close");
+            /* 模态框 */
+            var model = document.getElementById("model");
+            /* 背景 */
+            var mask = document.getElementsByClassName("mask")[0];
+            /* 所有input */
+            var input = document.getElementsByTagName("input");
+            /* 提交按钮 */
+            var submit = document.getElementsByClassName("submit")[0];
+            /* 轮播图 */
+            var img = document.getElementById("img01");
+            var img2 = document.getElementById("img02")
+            /* 下一张 */
+            var prev = document.getElementsByClassName("prev")[0];
+            /* 上一张 */
+            var next = document.getElementsByClassName("next")[0];
+
+            var imgArr = ["img/test.jpg", "img/描边-海报.jpg"];
+            var index = 0;
+            var time;
+            /* 开启定时器 */
+            time = setInterval(function () {
+                index++;
+                if (index >= imgArr.length) {
+                    index = 0;
+                }
+                img.src = imgArr[index];
+                img2.src = imgArr[index];
+                img.style.zIndex = 9;
+            }, 1500);
+            /* 鼠标移入 */
+            imgBox.onmouseout = function () {
+                time = setInterval(function () {
+                    index++;
+                    if (index >= imgArr.length) {
+                        index = 0;
+                    }
+                    img.src = imgArr[index];
+                    img2.src = imgArr[index];
+                }, 1500);
+            }
+            imgBox.onmouseover = function () {
+                clearInterval(time);
+            }
+            /* 打开模态框 */
+            pop.addEventListener('click', function () {
+                model.style.display = "block";
+                mask.style.display = "block";
+            })
+            close.addEventListener('click', function () {
+                model.style.display = "none";
+                mask.style.display = "none";
+            })
+            /* 模态框三秒后关闭 */
+            submit.addEventListener('click', function () {
+                setTimeout(function () {
+                    model.style.display = "none";
+                    mask.style.display = "none";
+                }, 3000)
+            })
+            /* 获得焦点value */
+            var put = 0;
+            var inputPrice = ["姓名", "电话", "邮箱", "上传", "备注"];
+            for (var j = 1; j <= input.length; j++) {
+                input[put].onfocus = function () {
+                    this.value = " ";
+                    /* 正则表达式 */
+                    var res = /^[a-zA-Z0-9\u4e00-\u9fa5_]{6,18}$/;
+                    var one = document.getElementById("one");
+                    if (res.exec(input[0].value == " ")) {
+                        return true;
+                    } else {
+                        one.style.color = "red";
+                        one.value = "请输入6-18位中英文用户名！";
+                        return false;
+                    };
+
+                }
+                input[put].onblur = function () {
+                    this.value = inputPrice[put];
+                    console.log(inputPrice[put]);
+                }
+                put++;
+            }
+            /* 按钮切换轮播图 */
+            var Left = 582;
+            prev.onclick = function () {
+                Page(true);
+            }
+            next.onclick = function () {
+                Page(false);
+            }
+
+            function Page(price) {
+                if (price == true) {
+                    imgList.style.left = -(Left * 2) + "px";
+                    imgList2.style.left = -(Left * 2) + "px";
+                    if (imgList.style.left > 1164 + "px") {
+                        imgList.style.left = 0;
+                    }
+                } else {
+                    imgList.style.left = 0;
+                    imgList2.style.left = 0;
+                }
+
+            }
+        }
+    </script>
+</head>
+
+<body id="body">
+    <!-- 外层容器 1200-->
+    <div class="container clearfix" id="container">
+        <!-- 轮播图 -->
+        <div class="img-list clearfix">
+            <!-- 582 * 327 -->
+            <div class="img-box clearfix" id="imgbox">
+                <ul id="sildeshow">
+                    <li>
+                        <img id="img01" src="./img/test.jpg" alt="">
+                    </li>
+                    <li>
+                        <img id="img01" src="./img/描边-海报.jpg" alt="">
+                    </li>
+                    <li>
+                        <img id="img01" src="./img/test.jpg" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class="img-box clearfix">
+                <ul id="sildeshow2">
+                    <li>
+                        <img id="img02" src="./img/test.jpg" alt="">
+                    </li>
+                    <li>
+                        <img id="img01" src="./img/描边-海报.jpg" alt="">
+                    </li>
+                    <li>
+                        <img id="img01" src="./img/test.jpg" alt="">
+                    </li>
+                </ul>
+            </div>
+            <!-- 轮播图圆点 11*11 -->
+            <ul class="dot-list clearfix">
+                <div>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </div>
+            </ul>
+            <!-- 切换图片 -->
+            <div class="prev">
+                <a href="#">
+                    <i class="fas fa-angle-left"></i>
+                </a>
+            </div>
+            <div class="next">
+                <a href="#">
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- 下拉框 -->
+        <div class="drop-down">
+            <select name="" id="">
+                <option value="">领域</option>
+            </select>
+            <select name="" id="">
+                <option value="">院校</option>
+            </select>
+            <select name="" id="">
+                <option value="">团队</option>
+            </select>
+            <button id="pop">
+                <a href="#">
+                    咨询
+                </a>
+            </button>
+            <!-- 740 * 623 -->
+            <div class="model-fad" id="model">
+                <i class="iconfont icon-guanbi2" id="close"></i>
+
+                <div class="modal-body">
+                    <form action="">
+                        <!-- 597*49 -->
+                        <input type="text" value="姓名" id="one">
+                        <input type="text" value="电话" id="two">
+                        <input type="text" value="邮箱">
+                        <label type="button">
+                            <i class="fas fa-upload"></i>
+                            <span>上传图片</span>
+                            <input type="file" value="上传">
+                        </label>
+                        <input type="text" value="备注">
+                        <button class="submit">提交</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mask"></div>
+
+            <!-- 表格 -->
+            <div class="tab-list clearfix">
+                <table class="clearfix">
+                    <tr>
+                        <td class="A">领域 A</td>
+                        <td class="A">院校 A</td>
+                        <td class="A">团队 A</td>
+                    </tr>
+                    <tr>
+                        <td class="B">领域 B</td>
+                        <td class="B">院校 B</td>
+                        <td class="B">团队 B1</td>
+                    </tr>
+                    <tr>
+                        <td class="C">领域 B</td>
+                        <td class="C">院校 B</td>
+                        <td class="C">团队 B2</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+</body>
+
+</html>

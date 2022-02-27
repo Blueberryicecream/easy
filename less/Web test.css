@@ -1,0 +1,243 @@
+/* Less */
+/* 解决高度塌陷问题 */
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+/* 内容盒子 */
+.container {
+  margin: 50px auto;
+  width: 1200px;
+  /* 轮播图容器 */
+  /* 轮播图圆点 */
+  /* 下拉框样式 */
+  /* 表格 */
+}
+.container .img-list {
+  width: 100%;
+  height: 327px;
+  position: relative;
+  /* img容器 */
+  /* 切换图片按钮 */
+}
+.container .img-list .img-box {
+  width: 582px;
+  height: 327px;
+  overflow: hidden;
+  float: left;
+  position: relative;
+}
+.container .img-list .img-box ul {
+  width: 1746px;
+  position: absolute;
+  /* left: -1746px; */
+}
+.container .img-list .img-box ul li {
+  float: left;
+  width: 582px;
+  height: 327px;
+}
+.container .img-list .img-box img {
+  transition: 1s;
+  width: 100%;
+  height: 100%;
+}
+.container .img-list li:hover img {
+  transform: scale(1.2);
+}
+.container .img-list .img-box:nth-child(2) {
+  /* float: right; */
+  float: right;
+  vertical-align: bottom;
+}
+.container .img-list .prev,
+.container .img-list .next {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #eeeeee;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 34px;
+  position: absolute;
+}
+.container .img-list .prev a,
+.container .img-list .next a {
+  color: black;
+}
+.container .img-list .prev {
+  top: 153px;
+  left: -74px;
+}
+.container .img-list .next {
+  top: 163px;
+  right: -74px;
+}
+.container .img-list .prev:hover,
+.container .img-list .next:hover {
+  background-color: seagreen;
+}
+.container .dot-list {
+  margin-top: 33px;
+  width: 100%;
+  float: left;
+  /* background-color: rebeccapurple; */
+}
+.container .dot-list div {
+  width: 130px;
+  margin: 0 auto;
+  padding-left: 60px;
+}
+.container .dot-list div li {
+  width: 11px;
+  height: 11px;
+  background-color: #d2dffe;
+  float: left;
+  margin-right: 16px;
+  border-radius: 50%;
+}
+.container .dot-list div li:first-child {
+  background-color: #205ffc;
+}
+.container .dot-list div li:hover {
+  background-color: #205ffc;
+}
+.container .drop-down {
+  width: 100%;
+  margin-top: 39px;
+  float: left;
+  /* 模态框 */
+}
+.container .drop-down select {
+  width: 201px;
+  height: 39px;
+  margin-right: 44px;
+  border-radius: 5px;
+  color: #c0c4cc;
+  font-size: 14px;
+  border: 1px solid #b3bac5;
+  padding-left: 15px;
+}
+.container .drop-down button {
+  width: 151px;
+  height: 39px;
+  float: right;
+  background-color: #205ffc;
+  border-radius: 5px;
+  border: none;
+}
+.container .drop-down button a {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+}
+.container .drop-down .model-fad {
+  width: 740px;
+  height: 623px;
+  display: none;
+  position: absolute;
+  left: 460px;
+  top: 157px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  z-index: 2;
+}
+.container .drop-down .model-fad form {
+  width: 100%;
+  height: 100%;
+  margin: 41px 72px;
+  position: relative;
+}
+.container .drop-down .model-fad form input {
+  border: 1px solid #b3bac5;
+  border-radius: 5px;
+  width: 571px;
+  height: 49px;
+  margin-bottom: 18px;
+  color: #b3bac5;
+  padding-left: 22px;
+}
+.container .drop-down .model-fad form label {
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  border: 1px solid #b3bac5;
+  border-radius: 5px;
+  margin-bottom: 18px;
+  color: #b3bac5;
+  text-align: center;
+  line-height: 100px;
+}
+.container .drop-down .model-fad form label i {
+  font-size: 20px;
+  display: block;
+  margin-top: 20px;
+}
+.container .drop-down .model-fad form label input {
+  display: block;
+  opacity: 0;
+}
+.container .drop-down .model-fad form span {
+  position: absolute;
+  left: 20px;
+  top: 17px;
+}
+.container .drop-down .model-fad form input:nth-child(5) {
+  height: 155px;
+  text-align: center;
+}
+.container .drop-down .model-fad form button {
+  float: left;
+  width: 597px;
+  height: 49px;
+  color: white;
+  font-size: 16px;
+}
+.container .drop-down .model-fad #close {
+  position: absolute;
+  left: 740px;
+  top: -40px;
+  font-size: 36px;
+  color: #ffffff;
+}
+.container .drop-down .mask {
+  position: absolute;
+  /* float: left; */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1000px;
+  background-color: rgba(127, 127, 127, 0.9);
+  z-index: 1;
+  display: none;
+  /* background-color: rebeccapurple; */
+}
+.container .tab-list {
+  margin-top: 23px;
+  width: 100%;
+  float: left;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.container .tab-list table {
+  margin: 21px;
+}
+.container .tab-list table tr {
+  border-bottom: 1px solid #b3bac5;
+}
+.container .tab-list table td {
+  margin: 25px 0;
+  float: left;
+  margin-right: 493px;
+  font-size: 16px;
+}
+.container .tab-list table td:nth-child(3) {
+  margin-right: 0;
+}
+/*# sourceMappingURL=./Web test.css.map */

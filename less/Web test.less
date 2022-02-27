@@ -1,0 +1,288 @@
+/* Less */
+
+/* 解决高度塌陷问题 */
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* 内容盒子 */
+.container {
+    margin: 50px auto;
+    width: 1200px;
+
+    /* 轮播图容器 */
+    .img-list {
+        width: 100%;
+        height: 327px;
+        position: relative;
+
+        /* img容器 */
+        .img-box {
+            width: 582px;
+            height: 327px;
+            overflow: hidden;
+            float: left;
+            position: relative;
+
+            ul {
+                width: 1746px;
+                position: absolute;
+                /* left: -1746px; */
+
+                li {
+                    float: left;
+                    width: 582px;
+                    height: 327px;
+                }
+            }
+
+            img {
+                transition: 1s;
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+
+        li:hover img {
+            transform: scale(1.2);
+        }
+
+        .img-box:nth-child(2) {
+            /* float: right; */
+            float: right;
+            vertical-align: bottom;
+        }
+
+        /* 切换图片按钮 */
+        .prev,
+        .next {
+            width: 34px;
+            height: 34px;
+            border: 1px solid #eeeeee;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 34px;
+            position: absolute;
+
+            a {
+                color: black;
+            }
+        }
+
+        .prev {
+            top: 153px;
+            left: -74px;
+        }
+
+        .next {
+            top: 163px;
+            right: -74px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: seagreen;
+        }
+    }
+
+    /* 轮播图圆点 */
+    .dot-list {
+        margin-top: 33px;
+        width: 100%;
+        float: left;
+
+        /* background-color: rebeccapurple; */
+        div {
+            width: 130px;
+            margin: 0 auto;
+            padding-left: 60px;
+
+            li {
+                width: 11px;
+                height: 11px;
+                background-color: #d2dffe;
+                float: left;
+                margin-right: 16px;
+                border-radius: 50%;
+            }
+
+            li:first-child {
+                background-color: #205ffc;
+            }
+
+            li:hover {
+                background-color: #205ffc;
+            }
+        }
+
+
+
+
+    }
+
+    /* 下拉框样式 */
+    .drop-down {
+        width: 100%;
+        margin-top: 39px;
+        float: left;
+
+        select {
+            width: 201px;
+            height: 39px;
+            margin-right: 44px;
+            border-radius: 5px;
+            color: #c0c4cc;
+            font-size: 14px;
+            border: 1px solid #b3bac5;
+            padding-left: 15px;
+        }
+
+        button {
+            width: 151px;
+            height: 39px;
+            float: right;
+            background-color: #205ffc;
+            border-radius: 5px;
+            border: none;
+
+            a {
+                color: white;
+                font-size: 14px;
+                text-decoration: none;
+            }
+        }
+
+        /* 模态框 */
+        .model-fad {
+            width: 740px;
+            height: 623px;
+            display: none;
+            position: absolute;
+            left: 460px;
+            top: 157px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            z-index: 2;
+
+            form {
+                width: 100%;
+                height: 100%;
+                margin: 41px 72px;
+                position: relative;
+
+                input {
+                    border: 1px solid #b3bac5;
+                    border-radius: 5px;
+                    width: 571px;
+                    height: 49px;
+                    margin-bottom: 18px;
+                    color: #b3bac5;
+                    padding-left: 22px;
+                }
+
+                label {
+                    position: relative;
+                    display: block;
+                    width: 100px;
+                    height: 100px;
+                    overflow: hidden;
+                    top: 0;
+                    left: 0;
+                    border: 1px solid #b3bac5;
+                    border-radius: 5px;
+                    margin-bottom: 18px;
+                    color: #b3bac5;
+                    text-align: center;
+                    line-height: 100px;
+
+                    i {
+                        font-size: 20px;
+                        display: block;
+                        margin-top: 20px;
+                    }
+
+                    input {
+                        display: block;
+                        opacity: 0;
+                    }
+                }
+
+                span {
+                    position: absolute;
+                    left: 20px;
+                    top: 17px;
+                }
+
+                input:nth-child(5) {
+                    height: 155px;
+                    text-align: center;
+                }
+                
+
+                button {
+                    float: left;
+                    width: 597px;
+                    height: 49px;
+                    color: white;
+                    font-size: 16px;
+                }
+
+                
+            }
+            #close {
+                position: absolute;
+                left: 740px;
+                top: -40px;
+                font-size: 36px;
+                color: #ffffff;
+            }
+        }
+        .mask {
+            position: absolute;
+            /* float: left; */
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1000px;
+            background-color: rgba(127, 127, 127, .9);
+            z-index: 1;
+            display: none;
+            /* background-color: rebeccapurple; */
+        }
+
+    }
+
+    /* 表格 */
+    .tab-list {
+        margin-top: 23px;
+        width: 100%;
+        float: left;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+
+        table {
+            margin: 21px;
+
+            tr {
+                border-bottom: 1px solid #b3bac5;
+            }
+
+            td {
+                margin: 25px 0;
+                float: left;
+                margin-right: 493px;
+                font-size: 16px;
+            }
+
+            td:nth-child(3) {
+                margin-right: 0;
+            }
+
+        }
+    }
+}
